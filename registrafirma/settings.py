@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'rest_framework.authtoken',
     'apps.accounts',
 ]
 
@@ -81,6 +83,14 @@ WSGI_APPLICATION = 'registrafirma.wsgi.application'
 default_dburl = "sqlite:///" + os.path.join(BASE_DIR, "db.sqlite3")
 DATABASES = {
     "default": config("DATABASE_URL", default=default_dburl, cast=dburl)
+}
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.TokenAuthentication",
+    ],
+    "DEFAULT_PAGINATION_CLASS": "apps.utils.pagination.CustomPagination",
+    "PAGE_SIZE": 10
 }
 
 
