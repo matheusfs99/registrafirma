@@ -2,9 +2,11 @@ import pytest
 from pytest_factoryboy import register
 from rest_framework.test import APIClient
 from tests.factories.accounts import UserFactory
+from tests.factories.companies import CompanyFactory
 
 
 register(UserFactory)
+register(CompanyFactory)
 
 
 @pytest.fixture
