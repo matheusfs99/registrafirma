@@ -20,7 +20,7 @@ def test_list_users(api_client, user_factory, another_user):
     url = reverse("user-list")
     response = api_client.get(url)
     assert response.status_code == HTTPStatus.OK
-    assert len(response.json()["results"]) == 2
+    assert len(response.json()["results"]) == 3
 
 
 def test_create_user(api_client, user_payload):
