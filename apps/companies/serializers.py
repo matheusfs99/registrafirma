@@ -6,7 +6,7 @@ from .models import Company, Employee
 class CompanySerializer(serializers.ModelSerializer):
     class Meta:
         model = Company
-        fields = "__all__"
+        fields = ("id", "cnpj", "name", "fantasy_name", "status", "user")
         extra_kwargs = {"user": {"read_only": True}}
 
     def validate_cnpj(self, value):
