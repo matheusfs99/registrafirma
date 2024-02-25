@@ -12,6 +12,7 @@ def test_company_serializer(company):
         "cnpj": company.cnpj,
         "name": company.name,
         "fantasy_name": company.fantasy_name,
+        "status": company.status,
         "user": company.user.id
     }
 
@@ -29,7 +30,8 @@ def test_company_serializer_with_invalid_cnpj():
     invalid_cnpj_data = {
         "cnpj": "123",
         "name": "test ltda",
-        "fantasy_name": "test"
+        "fantasy_name": "test",
+        "status": "active",
     }
     serializer = CompanySerializer(data=invalid_cnpj_data)
     assert not serializer.is_valid()

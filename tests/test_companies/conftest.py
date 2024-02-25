@@ -7,6 +7,7 @@ def company_payload(user):
         "cnpj": "29276649000111",
         "name": "test",
         "fantasy_name": "test tlda",
+        "status": "active",
         "user": user.id
     }
 
