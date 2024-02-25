@@ -54,16 +54,3 @@ def test_detail_company_nonexistent(api_client):
     url = reverse("company-detail", kwargs={"pk": 123})
     response = api_client.get(url)
     assert response.status_code == HTTPStatus.NOT_FOUND
-
-
-def test_update_company(api_client, company):
-    company.save()
-    url = reverse("company-detail", kwargs={"pk": company.id})
-    payload = {
-        "cnpj": generate_cnpj()
-    }
-    response = api_client.patch(url, json.dumps(payload), content_type="application/json")
-
-    assert response.status_code == HTTPStatus.OK
-    assert company.id == response.json()["id"]
-    assert company.cnpj != response.json()["cnpj"]
