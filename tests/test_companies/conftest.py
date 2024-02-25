@@ -9,3 +9,11 @@ def company_payload(user):
         "fantasy_name": "test tlda",
         "user": user.id
     }
+
+
+@pytest.fixture
+def employee_payload(user, company):
+    return {
+        "user": user.id,
+        "company": company.id
+    }

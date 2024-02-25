@@ -2,7 +2,6 @@ import json
 import pytest
 from pytest_factoryboy.fixture import register
 from http import HTTPStatus
-from rest_framework.authtoken.models import Token
 from rest_framework import status
 from rest_framework.reverse import reverse
 from apps.companies.models import Company
