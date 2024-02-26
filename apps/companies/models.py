@@ -5,12 +5,15 @@ class Company(models.Model):
     class Status(models.TextChoices):
         ACTIVE = "active"
         INACTIVE = "inactive"
+        NONEXISTENT = "nonexistent"
 
     cnpj = models.CharField("CNPJ", max_length=14, unique=True)
     name = models.CharField("Razão Social", max_length=255)
-    fantasy_name = models.CharField("Nome Fantasia", max_length=255)
-    status = models.CharField("Status", max_length=8, choices=Status, default=Status.ACTIVE)
+    fantasy_name = models.CharField("Nome Fantasia", max_length=255, null=True, blank=True)
+    status = models.CharField("Status", max_length=11, choices=Status.choices, default=Status.ACTIVE)
     user = models.ForeignKey("accounts.User", on_delete=models.CASCADE)
+    created_at = models.DateTimeField("Data de criação", auto_now_add=True, editable=False)
+    updated_at = models.DateTimeField("Data de atualização", auto_now=True)
 
 
 class Employee(models.Model):

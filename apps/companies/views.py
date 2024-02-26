@@ -2,11 +2,12 @@ from rest_framework import viewsets, permissions
 from rest_framework import status
 from rest_framework.response import Response
 
+from .viewsets import NotUpdateViewSet
 from .serializers import CompanySerializer, EmployeeSerializer
 from .models import Company, Employee
 
 
-class CompanyViewSet(viewsets.ModelViewSet):
+class CompanyViewSet(NotUpdateViewSet):
     queryset = Company.objects.all()
     serializer_class = CompanySerializer
     permission_classes = [permissions.IsAuthenticated]
