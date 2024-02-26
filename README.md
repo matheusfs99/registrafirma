@@ -30,7 +30,7 @@ Registra Firma é uma API de cadastro de empresa com serviço de atualização d
 3. Instale as dependências:
 
    ```
-   pip install -r requirements.txt
+   make install
    ```
 
 4. Configure as variáveis de ambiente:
@@ -42,29 +42,24 @@ Registra Firma é uma API de cadastro de empresa com serviço de atualização d
    ```
    Crie uma SECRET_KEY executando:
    ```
-   python utils/secret_gen.py
+   make secret
    ```
    Copie a secret_key e adicione na variável de ambiente SECRET_KEY no seu .env
 
-5. Executando as migrações:
+5. Executando a aplicação com docker-compose e build do projeto:
 
    ```
-   python manage.py migrate
+   make build
    ```
 
 6. Rodando os testes:
    ```
-   pytest
+   make test
    ```
 
 7. Crie um superusuário para ter acesso ao admin:
    ```
-   python manage.py createsuperuser
-   ```
-
-8. Executando a aplicação:
-   ```
-   python manage.py runserver
+   make createsuperuser
    ```
 
 Agora a API estará disponível em `http://localhost:8000`.
