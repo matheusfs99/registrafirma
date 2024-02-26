@@ -17,4 +17,4 @@ install:
 	pip install -r requirements.txt
 
 secret:
-	docker-compose exec web python utils/secret_gen.py
+	python utils/secret_gen.py
