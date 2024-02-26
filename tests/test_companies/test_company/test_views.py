@@ -34,7 +34,7 @@ def test_create_company(api_client, company_payload):
 
 
 @pytest.mark.parametrize(
-    "field", ["cnpj", "name", "fantasy_name"]
+    "field", ["cnpj", "name"]
 )
 def test_create_company_without_field(field, api_client, company_payload):
     company_payload.pop(field)

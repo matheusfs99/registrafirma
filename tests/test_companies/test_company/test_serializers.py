@@ -20,7 +20,7 @@ def test_company_serializer(company):
 def test_company_serializer_without_required_fields():
     incomplete_data = {
         "cnpj": "03792152000162",
-        "name": "teste 1tda",
+        "fantasy_name": "teste",
     }
     serializer = CompanySerializer(data=incomplete_data)
     assert not serializer.is_valid()
