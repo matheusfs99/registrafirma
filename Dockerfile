@@ -10,6 +10,6 @@ RUN pip install --upgrade pip && pip install -r requirements.txt
 
 COPY . /registrafirma/
 
-EXPOSE 8000
+RUN python manage.py migrate
 
-#ENTRYPOINT ["entrypoint.sh"]
+EXPOSE 8000
