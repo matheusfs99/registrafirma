@@ -145,8 +145,8 @@ CELERY_ACCEPT_CONTENT = ["application/json"]
 CELERY_RESULT_SERIALIZER = "json"
 CELERY_TASK_SERIALIZER = "json"
 CELERY_BEAT_SCHEDULE = {
-    "teste": {
-        "task": "apps.companies.tasks.teste",
-        "schedule": crontab(),
+    "check_company": {
+        "task": "apps.companies.tasks.check_company",
+        "schedule": crontab(minute=0, hour=4),
     },
 }
